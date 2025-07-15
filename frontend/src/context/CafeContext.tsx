@@ -59,19 +59,19 @@ export function CafeProvider({ children }: { children: React.ReactNode }) {
     const savedHistory = localStorage.getItem('priceHistory')
 
     if (savedMaterials) {
-      setRawMaterials(JSON.parse(savedMaterials).map((m: any) => ({
+      setRawMaterials(JSON.parse(savedMaterials).map((m: RawMaterial) => ({
         ...m,
         lastUpdated: new Date(m.lastUpdated)
       })))
     }
     if (savedRecipes) {
-      setRecipes(JSON.parse(savedRecipes).map((r: any) => ({
+      setRecipes(JSON.parse(savedRecipes).map((r: Recipe) => ({
         ...r,
         lastUpdated: new Date(r.lastUpdated)
       })))
     }
     if (savedHistory) {
-      setPriceHistory(JSON.parse(savedHistory).map((h: any) => ({
+      setPriceHistory(JSON.parse(savedHistory).map((h: PriceHistory) => ({
         ...h,
         date: new Date(h.date)
       })))
