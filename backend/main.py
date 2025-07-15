@@ -1,12 +1,12 @@
 import os
 from typing import List
 
-from app.helpers import get_db
 from app.models.recipes import recipes
 from app.models.recipes.schemas import RecipeResponse
 from dotenv import load_dotenv
 from fastapi import Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from helpers import get_db
 from sqlalchemy.orm import Session
 
 load_dotenv()
