@@ -3,14 +3,7 @@ import { Plus, Edit, Trash2, Package } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
+import { Modal, ModalHeader, ModalTitle, ModalDescription } from "@/components/ui/modal"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useCafe, RawMaterial } from "@/context/CafeContext"
@@ -202,32 +195,20 @@ export function RawMaterials() {
           <p className="text-muted-foreground">Gerencie os ingredientes e seus preços</p>
         </div>
         
-        <Dialog open={isAddDialogOpen} onOpenChange={handleAddDialogChange}>
-          <DialogTrigger asChild>
-            <Button>
-              <Plus className="h-4 w-4 mr-2" />
-              Adicionar Matéria Prima
-            </Button>
-          </DialogTrigger>
-          <DialogContent 
-            className="sm:max-w-[425px]"
-            onInteractOutside={(e) => {
-              // Prevent closing when clicking on input elements
-              const target = e.target as Element
-              if (target.closest('input, button, label')) {
-                e.preventDefault()
-              }
-            }}
-          >
-            <DialogHeader>
-              <DialogTitle>Adicionar Nova Matéria Prima</DialogTitle>
-              <DialogDescription>
-                Cadastre um novo ingrediente com seu preço e unidade de medida.
-              </DialogDescription>
-            </DialogHeader>
-            <MaterialForm />
-          </DialogContent>
-        </Dialog>
+        <Button onClick={() => setIsAddDialogOpen(true)}>
+          <Plus className="h-4 w-4 mr-2" />
+          Adicionar Matéria Prima
+        </Button>
+
+        <Modal isOpen={isAddDialogOpen} onClose={() => setIsAddDialogOpen(false)}>
+          <ModalHeader>
+            <ModalTitle>Adicionar Nova Matéria Prima</ModalTitle>
+            <ModalDescription>
+              Cadastre um novo ingrediente com seu preço e unidade de medida.
+            </ModalDescription>
+          </ModalHeader>
+          <MaterialForm />
+        </Modal>
       </div>
 
       {rawMaterials.length === 0 ? (
@@ -238,32 +219,20 @@ export function RawMaterials() {
             <p className="text-muted-foreground text-center mb-4">
               Comece adicionando seus primeiros ingredientes para criar receitas.
             </p>
-            <Dialog open={isAddDialogOpen} onOpenChange={handleAddDialogChange}>
-              <DialogTrigger asChild>
-                <Button>
-                  <Plus className="h-4 w-4 mr-2" />
-                  Adicionar Primeira Matéria Prima
-                </Button>
-              </DialogTrigger>
-              <DialogContent 
-                className="sm:max-w-[425px]"
-                onInteractOutside={(e) => {
-                  // Prevent closing when clicking on input elements
-                  const target = e.target as Element
-                  if (target.closest('input, button, label')) {
-                    e.preventDefault()
-                  }
-                }}
-              >
-                <DialogHeader>
-                  <DialogTitle>Adicionar Nova Matéria Prima</DialogTitle>
-                  <DialogDescription>
-                    Cadastre um novo ingrediente com seu preço e unidade de medida.
-                  </DialogDescription>
-                </DialogHeader>
-                <MaterialForm />
-              </DialogContent>
-            </Dialog>
+            <Button onClick={() => setIsAddDialogOpen(true)}>
+              <Plus className="h-4 w-4 mr-2" />
+              Adicionar Primeira Matéria Prima
+            </Button>
+
+            <Modal isOpen={isAddDialogOpen} onClose={() => setIsAddDialogOpen(false)}>
+              <ModalHeader>
+                <ModalTitle>Adicionar Nova Matéria Prima</ModalTitle>
+                <ModalDescription>
+                  Cadastre um novo ingrediente com seu preço e unidade de medida.
+                </ModalDescription>
+              </ModalHeader>
+              <MaterialForm />
+            </Modal>
           </CardContent>
         </Card>
       ) : (
@@ -321,26 +290,15 @@ export function RawMaterials() {
         </div>
       )}
 
-      <Dialog open={isEditDialogOpen} onOpenChange={handleEditDialogChange}>
-        <DialogContent 
-          className="sm:max-w-[425px]"
-          onInteractOutside={(e) => {
-            // Prevent closing when clicking on input elements
-            const target = e.target as Element
-            if (target.closest('input, button, label')) {
-              e.preventDefault()
-            }
-          }}
-        >
-          <DialogHeader>
-            <DialogTitle>Editar Matéria Prima</DialogTitle>
-            <DialogDescription>
-              Atualize as informações da matéria prima.
-            </DialogDescription>
-          </DialogHeader>
-          <MaterialForm />
-        </DialogContent>
-      </Dialog>
+      <Modal isOpen={isEditDialogOpen} onClose={() => setIsEditDialogOpen(false)}>
+        <ModalHeader>
+          <ModalTitle>Editar Matéria Prima</ModalTitle>
+          <ModalDescription>
+            Atualize as informações da matéria prima.
+          </ModalDescription>
+        </ModalHeader>
+        <MaterialForm />
+      </Modal>
     </div>
   )
 }

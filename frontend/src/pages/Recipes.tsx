@@ -3,14 +3,7 @@ import { Plus, Edit, Trash2, ChefHat, Package } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
+import { Modal, ModalHeader, ModalTitle, ModalDescription } from "@/components/ui/modal"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
@@ -276,23 +269,23 @@ export function Recipes() {
           <p className="text-muted-foreground">Gerencie os produtos da cafeteria</p>
         </div>
         
-        <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
-          <DialogTrigger asChild>
-            <Button disabled={rawMaterials.length === 0}>
-              <Plus className="h-4 w-4 mr-2" />
-              Adicionar Receita
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-            <DialogHeader>
-              <DialogTitle>Adicionar Nova Receita</DialogTitle>
-              <DialogDescription>
-                Crie uma nova receita combinando matérias primas cadastradas.
-              </DialogDescription>
-            </DialogHeader>
-            <RecipeForm />
-          </DialogContent>
-        </Dialog>
+        <Button 
+          disabled={rawMaterials.length === 0}
+          onClick={() => setIsAddDialogOpen(true)}
+        >
+          <Plus className="h-4 w-4 mr-2" />
+          Adicionar Receita
+        </Button>
+
+        <Modal isOpen={isAddDialogOpen} onClose={() => setIsAddDialogOpen(false)} className="max-w-2xl">
+          <ModalHeader>
+            <ModalTitle>Adicionar Nova Receita</ModalTitle>
+            <ModalDescription>
+              Crie uma nova receita combinando matérias primas cadastradas.
+            </ModalDescription>
+          </ModalHeader>
+          <RecipeForm />
+        </Modal>
       </div>
 
       {rawMaterials.length === 0 ? (
@@ -313,23 +306,20 @@ export function Recipes() {
             <p className="text-muted-foreground text-center mb-4">
               Comece criando suas primeiras receitas usando as matérias primas cadastradas.
             </p>
-            <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
-              <DialogTrigger asChild>
-                <Button>
-                  <Plus className="h-4 w-4 mr-2" />
-                  Criar Primeira Receita
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-                <DialogHeader>
-                  <DialogTitle>Adicionar Nova Receita</DialogTitle>
-                  <DialogDescription>
-                    Crie uma nova receita combinando matérias primas cadastradas.
-                  </DialogDescription>
-                </DialogHeader>
-                <RecipeForm />
-              </DialogContent>
-            </Dialog>
+            <Button onClick={() => setIsAddDialogOpen(true)}>
+              <Plus className="h-4 w-4 mr-2" />
+              Criar Primeira Receita
+            </Button>
+
+            <Modal isOpen={isAddDialogOpen} onClose={() => setIsAddDialogOpen(false)} className="max-w-2xl">
+              <ModalHeader>
+                <ModalTitle>Adicionar Nova Receita</ModalTitle>
+                <ModalDescription>
+                  Crie uma nova receita combinando matérias primas cadastradas.
+                </ModalDescription>
+              </ModalHeader>
+              <RecipeForm />
+            </Modal>
           </CardContent>
         </Card>
       ) : (
@@ -393,17 +383,15 @@ export function Recipes() {
         </div>
       )}
 
-      <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle>Editar Receita</DialogTitle>
-            <DialogDescription>
-              Atualize as informações da receita.
-            </DialogDescription>
-          </DialogHeader>
-          <RecipeForm />
-        </DialogContent>
-      </Dialog>
+      <Modal isOpen={isEditDialogOpen} onClose={() => setIsEditDialogOpen(false)} className="max-w-2xl">
+        <ModalHeader>
+          <ModalTitle>Editar Receita</ModalTitle>
+          <ModalDescription>
+            Atualize as informações da receita.
+          </ModalDescription>
+        </ModalHeader>
+        <RecipeForm />
+      </Modal>
     </div>
   )
 }
