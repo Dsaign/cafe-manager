@@ -1,13 +1,10 @@
 import os
-from typing import List
 
-from app.models.recipes import recipes
-from app.models.recipes.schemas import RecipeResponse
 from dotenv import load_dotenv
-from fastapi import Depends, FastAPI
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from helpers import get_db
-from sqlalchemy.orm import Session
+
+from app.services.recipes import recipe_router
 
 load_dotenv()
 app = FastAPI()
@@ -22,33 +19,9 @@ app.add_middleware(
 )
 
 # ============
-# RECIPES
+# ROUTES
 # ============
-
-@app.get("/get/recipes", response_model=List[RecipeResponse])
-def get_recipes(db: Session = Depends(get_db)):
-    return db.query(recipes.Recipe).all()
-
-@app.get("/get/recipes/{id}")
-def get_recipes_from_id(id: int):
-    return {"message": f"recipe {id}"}
-
-@app.get("/post/recipes")
-def post_recipes(db: Session = Depends(get_db)):
-    new_recipe = recipes.Recipe(name="New Recipe", description="Delicious recipe")
-    db.add(new_recipe)
-    db.commit()
-    db.refresh(new_recipe)
-    return {"message": "Recipe created", "id": new_recipe.id}
-
-@app.put("/update/recipes/{id}")
-def update_recipes(id: int):
-    return {"message": f"recipe {id} updated"}
-
-@app.delete("/delete/recipes/{id}")
-def delete_recipes(id: int):
-    return {"message": f"{id} recipe deleted"}
-
+app.include_router(recipe_router)
 
 # ============
 # INGREDIENTS
