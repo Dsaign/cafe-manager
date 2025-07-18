@@ -1,3 +1,4 @@
+import logging
 import os
 
 from dotenv import load_dotenv
@@ -6,6 +7,11 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.services.recipes import recipe_router
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+)
+
 load_dotenv()
 app = FastAPI()
 
@@ -13,7 +19,7 @@ HOST_ORIGIN = [origin for origin in [os.getenv("HOST_ORIGIN")] if origin is not 
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins= HOST_ORIGIN, # porta padrão do Vite
+    allow_origins= HOST_ORIGIN,
     allow_methods=["*"],
     allow_headers=["*"],
 )

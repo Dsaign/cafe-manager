@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 logger = getLogger(__name__)
 
 def get_db() -> Generator[Session, None, None]:
+    """Dependency to get a database session."""
     db = mysql_db.get_session()
     try:
         yield db
@@ -14,6 +15,10 @@ def get_db() -> Generator[Session, None, None]:
         db.close()
 
 def add_and_commit(db: Session, item) -> bool:
+    """Add an item to the database and commit the transaction.
+    Returns True if successful, False otherwise."""
+    if not db:
+        raise ValueError("Database session is not available")
     try:
         db.add(item)
         db.commit()

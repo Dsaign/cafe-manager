@@ -1,13 +1,13 @@
 from app.database import Base, mysql_db
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Integer, String
+from sqlalchemy.orm import Mapped, mapped_column
 
 
 class Recipe(Base):
     __tablename__ = "recipes"
 
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, index=True)
-    description = Column(String, nullable=True)
-    
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    name: Mapped[str] = mapped_column(String, index=True)
+    description: Mapped[str] = mapped_column(String, nullable=True)
 
 Base.metadata.create_all(bind=mysql_db.engine)
