@@ -1,15 +1,16 @@
 # ☕ Café Manager - Sistema de Gestão Inteligente para Cafeterias
 
+<div align="center">
 **Transformando a gestão de cafeterias com tecnologia e inteligência artificial** ☕
 
 [![Frontend](https://img.shields.io/badge/Frontend-React%20%2B%20TypeScript-blue)](frontend/)
 [![Backend](https://img.shields.io/badge/Backend-FastAPI%20%2B%20Python-green)](backend/)
 [![Tests](https://img.shields.io/badge/Tests-pytest-orange)](backend/tests/)
 [![License](https://img.shields.io/badge/License-MIT-purple)](LICENSE)
+</div>
 
 > **Sistema completo de controle de fluxo financeiro e logístico para cafeterias com integração de automação e inteligência artificial**
 
-<br/>
 
 ## 📋 Sobre o Projeto
 
@@ -46,7 +47,6 @@ O **Café Manager** é um sistema web desenvolvido para auxiliar proprietários 
    - Alertas inteligentes de reposição
    - Análise de tendências de consumo
 
-<br/>
 
 ## 🏗️ Arquitetura
 
@@ -60,7 +60,6 @@ cafe-manager/
 ├── 📊 docs/        # Documentação
 └── 🔧 .github/     # CI/CD e workflows
 ```
-<br/>
 
 ## 🎨 Frontend
 
@@ -74,7 +73,6 @@ cafe-manager/
 | **React Router** | Roteamento client-side |
 | **TanStack Query** | Gerenciamento de estado servidor |
 
-<br/>
 
 ### 🎯 UI/UX Framework
 
@@ -97,7 +95,6 @@ cafe-manager/
 - ✅ Formulários validados
 - ✅ Notificações toast
 
-<br/>
 
 ## ⚙️ Backend
 
@@ -111,7 +108,6 @@ cafe-manager/
 | **Pydantic** | Validação de dados e serialização |
 | **Uvicorn** | Servidor ASGI |
 
-<br/>
 
 ### 🗄️ Banco de Dados & ORM
 
@@ -119,7 +115,6 @@ cafe-manager/
 - **SQLite/PostgreSQL**: Suporte a múltiplos SGBDs
 - **Alembic**: Migrações de schema (futuro)
 
-<br/>
 
 ### 🔐 Recursos Backend
 
@@ -130,7 +125,6 @@ cafe-manager/
 - ✅ Tratamento de erros padronizado
 - ✅ CORS configurado
 
-<br/>
 
 ### 📊 Estrutura da API
 
@@ -156,7 +150,6 @@ cafe-manager/
 | **FastAPI TestClient** | Testes de API | Endpoints |
 | **SQLite Memory** | Banco para testes | Integração |
 
-<br/>
 
 ### 📋 Tipos de Teste
 
@@ -176,7 +169,6 @@ make test-unit
 make test-cov
 ```
 
-<br/>
 
 ## 🤖 Automação e Inteligência Artificial
 
@@ -203,7 +195,6 @@ make test-cov
    - Identificação de oportunidades de economia
 
 
-<br/>
 
 ### 🔮 Futuras Implementações de IA
 
@@ -212,7 +203,6 @@ make test-cov
 - 🎯 Personalização de ofertas
 - 📈 Machine Learning para precificação dinâmica
 
-<br/>
 
 ## 🚀 Como Executar
 
@@ -265,7 +255,6 @@ make test-cov
    - Backend API: http://localhost:8000
    - Documentação: http://localhost:8000/docs
 
-<br/>
 
 ## 📊 Status do Projeto
 
@@ -294,8 +283,10 @@ make test-cov
 - [ ] Integração com sistemas de PDV
 - [ ] Análise de imagem para controle de qualidade
 
-<br/>
 
 ## 📝 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+
+
