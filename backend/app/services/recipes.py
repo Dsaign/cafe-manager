@@ -71,6 +71,12 @@ def update_recipe(id: int, payload: RecipeCreate, db: Session = Depends(get_db))
 
 @recipe_router.delete("/{id}", status_code=f_status_code.HTTP_204_NO_CONTENT)
 def delete_recipe(id: int, db: Session = Depends(get_db)):
+    if not id:
+        logger.error("Recipe ID must be provided for deletion")
+        raise HTTPException(
+            status_code=f_status_code.HTTP_400_BAD_REQUEST,
+            detail="Recipe ID must be provided"
+        )
     logger.info(f"Deleting recipe with ID {id}")
     recipe = db.query(recipes.Recipe).filter(recipes.Recipe.id == id).first()
     

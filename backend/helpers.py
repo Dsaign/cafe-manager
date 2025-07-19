@@ -1,5 +1,5 @@
 from logging import getLogger
-from typing import Generator
+from typing import Generator, Optional
 
 from app.database import mysql_db
 from sqlalchemy.orm import Session
@@ -14,7 +14,7 @@ def get_db() -> Generator[Session, None, None]:
     finally:
         db.close()
 
-def add_and_commit(db: Session, item) -> bool:
+def add_and_commit(db: Optional[Session], item) -> bool:
     """Add an item to the database and commit the transaction.
     Returns True if successful, False otherwise."""
     if not db:
