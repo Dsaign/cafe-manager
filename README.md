@@ -11,7 +11,7 @@
 
 <br />
 
-> **Controle de fluxo financeiro e logístico para cafeterias com integração de automação e inteligência artificial**
+> **Controle de fluxo financeiro e logístico para cafeterias com integração de automação e AI**
 
 
 ## 📋 Sobre o Projeto
