@@ -1,15 +1,17 @@
-# ☕ Café Manager - Sistema de Gestão Inteligente para Cafeterias
-
 <div align="center">
-**Transformando a gestão de cafeterias com tecnologia e inteligência artificial** ☕
-
+<h2> ☕ Café Manager</h2>
+<strong>Transformando a gestão de cafeterias com tecnologia e inteligência artificial</strong>
+<br /><br />
+   
 [![Frontend](https://img.shields.io/badge/Frontend-React%20%2B%20TypeScript-blue)](frontend/)
 [![Backend](https://img.shields.io/badge/Backend-FastAPI%20%2B%20Python-green)](backend/)
 [![Tests](https://img.shields.io/badge/Tests-pytest-orange)](backend/tests/)
 [![License](https://img.shields.io/badge/License-MIT-purple)](LICENSE)
 </div>
 
-> **Sistema completo de controle de fluxo financeiro e logístico para cafeterias com integração de automação e inteligência artificial**
+<br />
+
+> **Controle de fluxo financeiro e logístico para cafeterias com integração de automação e inteligência artificial**
 
 
 ## 📋 Sobre o Projeto
@@ -137,8 +139,6 @@ cafe-manager/
 └── 🤖 /ai               # Endpoints de IA
 ```
 
----
-
 ## 🧪 Testes e Qualidade
 
 ### 🔬 Framework de Testes
@@ -193,7 +193,6 @@ make test-cov
    - Análise de custos variáveis
    - Sugestões de preços competitivos
    - Identificação de oportunidades de economia
-
 
 
 ### 🔮 Futuras Implementações de IA
@@ -254,34 +253,6 @@ make test-cov
    - Frontend: http://localhost:5173
    - Backend API: http://localhost:8000
    - Documentação: http://localhost:8000/docs
-
-
-## 📊 Status do Projeto
-
-### ✅ Implementado
-
-- [x] Sistema base de receitas
-- [x] Gestão de matérias-primas
-- [x] Interface responsiva
-- [x] API RESTful completa
-- [x] Testes automatizados
-- [x] Dashboard básico
-
-### 🚧 Em Desenvolvimento
-
-- [ ] Sistema de fornecedores
-- [ ] Relatórios avançados
-- [ ] Integração com IA
-- [ ] Sistema de usuários
-- [ ] Notificações push
-
-### 🎯 Próximos Passos
-
-- [ ] Implementação de ML para previsão
-- [ ] Sistema de alertas inteligentes
-- [ ] Mobile app (React Native)
-- [ ] Integração com sistemas de PDV
-- [ ] Análise de imagem para controle de qualidade
 
 
 ## 📝 Licença
